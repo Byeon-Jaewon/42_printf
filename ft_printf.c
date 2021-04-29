@@ -6,7 +6,7 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 16:57:52 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/04/29 16:57:55 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/04/29 16:58:58 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ int		parse(char *format, va_list ap)
 	}
 	free(option);
 	return (ret);
+}
 
 
 int		ft_printf(const char *format, ...)
@@ -116,4 +117,4 @@ int	main()
 
 	a = ft_printf("asdf\n%0*X, %-0.2d",2,3,5);
 	printf("\nret = %d",a);
-
+}
