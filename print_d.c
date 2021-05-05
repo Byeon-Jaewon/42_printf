@@ -6,11 +6,26 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 12:27:48 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/05 17:21:55 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/05 17:53:28 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int		decimal_digit(int d)
+{
+	int		ret;
+	int		i;
+
+	ret = 0;
+	i = d;
+	while (i != 0)
+	{
+		i /= 10;
+		ret++;
+	}
+	return (ret);
+}
 
 int		print_decimal(int d, t_option *option)
 {
