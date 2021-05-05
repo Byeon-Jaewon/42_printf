@@ -6,20 +6,25 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 16:57:52 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/04/29 16:58:58 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/05 17:10:28 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "ft_printf.h"
 
-void	print_op(t_option *option)
+int		print_type(t_option *option, va_list ap)
 {
-	printf("\n\nminus : %d\n", option->minus);
-	printf("zero : %d\n", option->zero);
-	printf("width : %d\n", option->width);
-	printf("dot : %d\n", option->dot);
-	printf("type : %d", option->type);
+	int		ret;
+	int		type;
+
+	ret = 0;
+	type = option->type;
+	if (type == 0)
+		ret += print_char(va_arg(ap, int), option);
+	else if (type == 1)
+		ret += print_str(va_arg(ap, char *), option);
+	return (ret);
 }
 
 void	init_option(t_option *option)
@@ -27,7 +32,7 @@ void	init_option(t_option *option)
 	option->minus = 0;
 	option->zero = 0;
 	option->width = 0;
-	option->dot = -1;
+	option->pre = -1;
 	option->type = 0;
 }
 
@@ -35,19 +40,19 @@ void	set_wp(char *format, t_option *option, va_list ap, int i)
 {
 	if (ft_isdigit(format[i]))
 	{
-		if (option->dot == -1)
-			option->width = (option->width * 10) + (format[i] - 48);
+		if (option->pre == -1)
+			option->width = option->width * 10 + (format[i] - 48);
 		else
-			option->dot = (option->dot * 10) + (format[i] - 48);
+			option->pre = option->pre * 10 + (format[i] - 48);
 	}
 	else
 	{
-		if (option->dot == -1)
+		if (option->pre == -1)
 		{
 			option->width = va_arg(ap, int);
 		}
 		else
-			option->dot = va_arg(ap, int);
+			option->pre = va_arg(ap, int);
 	}
 }
 
@@ -55,10 +60,10 @@ void	set_option(char *format, t_option *option, va_list ap, int i)
 {
 	if (format[i] == '-')
 		option->minus = 1;
-	else if (format[i] == '0')
+	else if (format[i] == '0' && option->width == 0 && option->pre == -1)
 		option->zero = 1;
 	else if (format[i] == '.')
-		option->dot = 0;
+		option->pre = 0;
 	else if (ft_isdigit(format[i]) || format[i] == '*')
 		set_wp(format, option, ap, i);
 }
@@ -91,13 +96,13 @@ int		parse(char *format, va_list ap)
 			}
 			if (ft_strchr(TYPE, format[i]) != -1)
 				option->type = ft_strchr(TYPE, format[i++]);
-			print_op(option);
+			ret += print_type(option, ap);
+			//print_op(option);
 		}
 	}
 	free(option);
 	return (ret);
 }
-
 
 int		ft_printf(const char *format, ...)
 {
@@ -111,10 +116,25 @@ int		ft_printf(const char *format, ...)
 	return (ret);
 }
 
-int	main()
+int main(void)
 {
-	int		a;
+	char c[] = "this is string"; // len = 14
+	int n = 10;
 
-	a = ft_printf("asdf\n%0*X, %-0.2d",2,3,5);
-	printf("\nret = %d",a);
+	ft_printf("1 >%*s<\n", n, c);
+	ft_printf("2 >%-*s<\n",n, c);
+	ft_printf("3 >%0*.s<\n",n, c);
+	ft_printf("4 >%-s<\n", c);
+	ft_printf("5 >%-.s<\n", c);
+	ft_printf("6 >%.s<\n", c);
+	ft_printf("7 >%010.4s<\n", c);
+	ft_printf("8 >%.4s<\n", c);
+	ft_printf("9 >%.1s<\n", c);
+	ft_printf("A >%.s<\n", c);
+	ft_printf("B >%14.10s<\n", c);
+	ft_printf("C >%0.100s<\n", c);
+	ft_printf("D >%-.100s<\n", c);
+
+
+	return (0);
 }
