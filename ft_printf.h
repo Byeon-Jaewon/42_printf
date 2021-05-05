@@ -6,7 +6,7 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 12:07:26 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/05 17:19:11 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/05 17:31:27 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,9 @@ void	ft_putnbr(int n);
 
 int		print_char(int c, t_option *option);
 int		print_str(char *str, t_option *option);
+int		fill_width(int len, int zero, int width);
+int		check_pre(char *str, int len, int pre);
+
 
 
 #endif
