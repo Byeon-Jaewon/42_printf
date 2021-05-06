@@ -6,7 +6,7 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 16:57:52 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/05 17:10:28 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/06 17:26:51 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ int		print_type(t_option *option, va_list ap)
 		ret += print_char(va_arg(ap, int), option);
 	else if (type == 1)
 		ret += print_str(va_arg(ap, char *), option);
+//	else if (type == 2)
+//		ret += print_pointer(va_arg(ap, char*), option);
+	else if (type == 3)
+		ret += print_decimal(va_arg(ap, int), option);
 	return (ret);
 }
 
@@ -92,12 +96,16 @@ int		parse(char *format, va_list ap)
 			while (format[i] != '\0' && ft_strchr(TYPE, format[i]) == -1)
 			{
 				set_option(format, option, ap, i);
+				if (option->width < 0)
+				{
+					option->minus = 1;
+					option->width *= -1;
+				}
 				i++;
 			}
 			if (ft_strchr(TYPE, format[i]) != -1)
 				option->type = ft_strchr(TYPE, format[i++]);
 			ret += print_type(option, ap);
-			//print_op(option);
 		}
 	}
 	free(option);
@@ -116,25 +124,18 @@ int		ft_printf(const char *format, ...)
 	return (ret);
 }
 
-int main(void)
+int		main(void)
 {
-	char c[] = "this is string"; // len = 14
-	int n = 10;
+	int		i = 5;
+	int		j = 123;
+	int		s;
 
-	ft_printf("1 >%*s<\n", n, c);
-	ft_printf("2 >%-*s<\n",n, c);
-	ft_printf("3 >%0*.s<\n",n, c);
-	ft_printf("4 >%-s<\n", c);
-	ft_printf("5 >%-.s<\n", c);
-	ft_printf("6 >%.s<\n", c);
-	ft_printf("7 >%010.4s<\n", c);
-	ft_printf("8 >%.4s<\n", c);
-	ft_printf("9 >%.1s<\n", c);
-	ft_printf("A >%.s<\n", c);
-	ft_printf("B >%14.10s<\n", c);
-	ft_printf("C >%0.100s<\n", c);
-	ft_printf("D >%-.100s<\n", c);
+	ft_printf("%d\n",ft_printf("ft1 : [%-10.0d]", 5));
+	printf("%d\n",printf("pf1 : [%-10.0d]", 5));
 
+	ft_printf("%d\n",ft_printf("ft2 : [%010.2d]", -5));
+	printf("%d\n",printf("pf2 : [%010.2d]", -5));
 
-	return (0);
+	return 0;
 }
+

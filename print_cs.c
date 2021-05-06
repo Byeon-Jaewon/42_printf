@@ -6,20 +6,20 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 13:47:12 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/05 17:19:45 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/06 17:25:49 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		fill_width(int len, int zero, int width)
+int		fill_width(int len, int zero, int width, int minus)
 {
 	int		ret;
 
 	ret = 0;
 	while (len < width)
 	{
-		if (zero == 1)
+		if (zero == 1 && minus == 1)
 			ft_putchar('0');
 		else
 			ft_putchar(' ');
@@ -60,7 +60,7 @@ int		print_char(int c, t_option *option)
 		ft_putchar(c);
 		ret++;
 	}
-	ret += fill_width(1, option->zero, option->width);
+	ret += fill_width(1, option->zero, option->width, option->minus);
 	if (option->minus == 0)
 	{
 		ft_putchar(c);
@@ -79,9 +79,9 @@ int		print_str(char *str, t_option *option)
 	if (option->minus == 1)
 		ret += check_pre(str, len, option->pre);
 	if (option->pre > -1 && option->pre < len)
-		ret += fill_width(option->pre, option->zero, option->width);
+		ret += fill_width(option->pre, option->zero, option->width, option->minus);
 	if (option->pre < 0 || option->pre > len)
-		ret += fill_width(len, option->zero, option->width);
+		ret += fill_width(len, option->zero, option->width, option->minus);
 	if (option->minus == 0)
 		ret += check_pre(str, len, option->pre);
 	return (ret);
