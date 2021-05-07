@@ -6,7 +6,7 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 13:47:12 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/07 15:01:07 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/07 17:01:10 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,30 @@ int		fill_width(int len, int zero, int width, int minus)
 	ret = 0;
 	while (len < width)
 	{
-		if (zero == 1 && minus == 1)
+		if (zero == 1 && minus == 0)
 			ft_putchar('0');
 		else
 			ft_putchar(' ');
 		len++;
+		ret++;
+	}
+	return (ret);
+}
+
+int		print_char(int c, t_option *option)
+{
+	int		ret;
+
+	ret = 0;
+	if (option->minus == 1)
+	{
+		ft_putchar(c);
+		ret++;
+	}
+	ret += fill_width(1, option->zero, option->width, option->minus);
+	if (option->minus == 0)
+	{
+		ft_putchar(c);
 		ret++;
 	}
 	return (ret);
@@ -50,37 +69,20 @@ int		check_pre(char *str, int len, int pre)
 	}
 }
 
-int		print_char(int c, t_option *option)
-{
-	int		ret;
-
-	ret = 0;
-	if (option->minus == 1)
-	{
-		ft_putchar(c);
-		ret++;
-	}
-	ret += fill_width(1, option->zero, option->width, option->minus);
-	if (option->minus == 0)
-	{
-		ft_putchar(c);
-		ret++;
-	}
-	return (ret);
-}
-
 int		print_str(char *str, t_option *option)
 {
 	int		ret;
 	int		len;
 
 	ret = 0;
+	if (str == NULL)
+		str = "(null)";
 	len = ft_strlen(str);
 	if (option->minus == 1)
 		ret += check_pre(str, len, option->pre);
 	if (option->pre > -1 && option->pre < len)
 		ret += fill_width(option->pre, option->zero, option->width, option->minus);
-	if (option->pre < 0 || option->pre > len)
+	if (option->pre < 0 || option->pre >= len)
 		ret += fill_width(len, option->zero, option->width, option->minus);
 	if (option->minus == 0)
 		ret += check_pre(str, len, option->pre);

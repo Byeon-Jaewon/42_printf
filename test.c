@@ -1,54 +1,23 @@
 #include <stdio.h>
-#include <stdlib.h>
-# include <unistd.h>
 
 
-int		decimal_digit(int d)
+int		ft_strlen(char *str)
 {
-	int		ret;
+	int		i;
 
-	if (d == 0)
+	i = 0;
+	if (str == "\0")
 		return (1);
-	ret = 0;
-	while (d != 0)
-	{
-		d /= 10;
-		ret++;
-	}
-	return (ret);
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }
 
-void	ft_putchar(char c)
+int	main(void)
 {
-	write(0, &c, 1);
-}
+	char *s = "\0";
 
-void		ft_putnbr_hex(long d)
-{
-	char	*hex;
-
-	hex = "0123456789abcdef";
-	if (d < 0)
-	{
-		d *= -1;
-		ft_putchar('-');
-		ft_putnbr_hex(d);
-	}
-	else if (d < 16)
-		ft_putchar(hex[d]);
-	else
-	{
-		ft_putnbr_hex(d / 16);
-		ft_putchar(hex[d % 16]);
-	}
-}
-
-int		main(void)
-{
-	int		i = -10000;
-	int		a;
-
-	ft_putchar(38);
+	printf("%d", ft_strlen(s));
 
 	return 0;
 }
