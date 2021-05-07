@@ -6,7 +6,7 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 14:03:51 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/07 14:03:59 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/07 16:27:10 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@ void	ft_putstr(char *s)
 {
 	if (s == 0)
 		return ;
-	write(0, s, ft_strlen(s));
+	write(1, s, ft_strlen(s));
 }
