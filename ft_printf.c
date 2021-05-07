@@ -6,7 +6,7 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 16:57:52 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/06 17:26:51 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/07 15:04:04 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,14 @@ int		print_type(t_option *option, va_list ap)
 		ret += print_char(va_arg(ap, int), option);
 	else if (type == 1)
 		ret += print_str(va_arg(ap, char *), option);
-//	else if (type == 2)
-//		ret += print_pointer(va_arg(ap, char*), option);
-	else if (type == 3)
+	//else if (type == 2)
+	//	ret += print_pointer(va_arg(ap, char*), option);
+	else if (type == 3 || type == 4)
 		ret += print_decimal(va_arg(ap, int), option);
+	else if (type == 5)
+		ret += print_decimal(va_arg(ap, unsigned int), option);
+	else if (type == 8)
+		ret += print_char('%', option);
 	return (ret);
 }
 
@@ -123,19 +127,3 @@ int		ft_printf(const char *format, ...)
 
 	return (ret);
 }
-
-int		main(void)
-{
-	int		i = 5;
-	int		j = 123;
-	int		s;
-
-	ft_printf("%d\n",ft_printf("ft1 : [%-10.0d]", 5));
-	printf("%d\n",printf("pf1 : [%-10.0d]", 5));
-
-	ft_printf("%d\n",ft_printf("ft2 : [%010.2d]", -5));
-	printf("%d\n",printf("pf2 : [%010.2d]", -5));
-
-	return 0;
-}
-

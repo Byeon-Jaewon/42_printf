@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <stdlib.h>
+# include <unistd.h>
+
 
 int		decimal_digit(int d)
 {
@@ -15,12 +18,37 @@ int		decimal_digit(int d)
 	return (ret);
 }
 
+void	ft_putchar(char c)
+{
+	write(0, &c, 1);
+}
+
+void		ft_putnbr_hex(long d)
+{
+	char	*hex;
+
+	hex = "0123456789abcdef";
+	if (d < 0)
+	{
+		d *= -1;
+		ft_putchar('-');
+		ft_putnbr_hex(d);
+	}
+	else if (d < 16)
+		ft_putchar(hex[d]);
+	else
+	{
+		ft_putnbr_hex(d / 16);
+		ft_putchar(hex[d % 16]);
+	}
+}
+
 int		main(void)
 {
-	int		i = 100;
+	int		i = -10000;
 	int		a;
 
-	printf("%d",printf("asdf%d", i));
+	ft_putchar(38);
 
 	return 0;
 }

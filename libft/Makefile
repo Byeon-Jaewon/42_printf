@@ -5,40 +5,32 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/05/06 15:41:50 by jbyeon            #+#    #+#              #
-#    Updated: 2021/05/07 14:08:10 by jbyeon           ###   ########.fr        #
+#    Created: 2020/12/25 16:11:45 by jbyeon            #+#    #+#              #
+#    Updated: 2021/05/07 14:12:12 by jbyeon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= libftprintf.a
-LIBFT		= libft
-LIBFT_LIB 	= libft.a
+NAME=libft.a
 
-SRCS		= ./ft_printf.c \
-			  ./print_cs.c ./print_d.c
+CC=gcc
+CFLAGS=-Wall -Wextra -Werror
+AR=ar rc
+RM=rm -f
+
+SRCS=ft_isdigit.c ft_strchr.c ft_strlen.c ft_putchar.c ft_putstr.c\
+	 ft_putnbr.c
+
 OBJS		= $(SRCS:.c=.o)
-INCS		= .
-RM			= rm -f
-LIBC		= ar rc
-CC			= gcc
-CFLAGS		= -Wall -Wextra -Werror
 
-.c.o :
-	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) -I$(INCS)
+all: $(NAME)
 
-$(NAME) : $(OBJS)
-	make all -C $(LIBFT)/
-	cp $(LIBFT)/$(LIBFT_LIB) $(NAME)
-	$(LIBC) $(NAME) $(OBJS)
-
-all : $(NAME)
-
-fclean : clean
-	$(RM) $(NAME)
-	make fclean -C $(LIBFT)
-
-clean :
+$(NAME):
+	$(CC) $(CFLAG) -c $(SRCS)
+	$(AR) $(NAME) $(OBJS)
+clean:
 	$(RM) $(OBJS)
-	make clean -C $(LIBFT)
 
-re : fclean all
+fclean: clean
+	$(RM) $(NAME)
+
+re: fclean all

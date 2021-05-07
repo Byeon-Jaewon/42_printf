@@ -6,7 +6,7 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 12:07:26 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/06 17:20:22 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/07 14:57:41 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include "./libft/libft.h"
 
 # define TYPE "cspdiuxX%"
 
@@ -28,14 +29,6 @@ typedef struct		s_option
 	int		type;
 }	t_option;
 
-void	ft_putchar(char c);
-void	ft_putstr(char *s);
-int		ft_strchr(char *s, int c);
-int		ft_isdigit(int c);
-int		ft_strlen(char *str);
-void	ft_putnbr(int n);
-
-
 int		print_char(int c, t_option *option);
 int		print_str(char *str, t_option *option);
 int		fill_width(int len, int zero, int width, int minus);
@@ -43,8 +36,6 @@ int		check_pre(char *str, int len, int pre);
 
 int		print_decimal(int d, t_option *option);
 int		decimal_digit(int d);
-
-
 
 
 #endif
