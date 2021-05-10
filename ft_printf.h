@@ -6,7 +6,7 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 12:07:26 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/07 15:31:20 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/10 14:32:22 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
-//# include "./libft/libft.h"
+# include "./libft/libft.h"
 
 # define TYPE "cspdiuxX%"
 
@@ -37,11 +37,12 @@ int		check_pre(char *str, int len, int pre);
 int		print_decimal(int d, t_option *option);
 int		decimal_digit(int d);
 //libft
+/*
 void	ft_putchar(char c);
 int		ft_strchr(char *s, int c);
 int		ft_isdigit(int c);
 int		ft_strlen(char *str);
 void	ft_putstr(char *s);
-void	ft_putnbr(int n);
+void	ft_putnbr(int n);*/
 
 #endif

@@ -6,13 +6,29 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 12:27:48 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/07 11:44:09 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/10 15:39:55 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
+int		fill_width_nbr(int len, int zero, int width, int pre)
+{
+	int		ret;
+
+	ret = 0;
+	while (len < width)
+	{
+		if (zero == 1 && pre == -1)
+			ft_putchar('0');
+		else
+			ft_putchar(' ');
+		len++;
+		ret++;
+	}
+	return (ret);
+}
 
 int		decimal_digit(int d)
 {
@@ -30,7 +46,7 @@ int		decimal_digit(int d)
 	return (ret);
 }
 
-int		check_pre_num(int len, int pre)
+int		padding(int len, int pre)
 {
 	int		ret;
 
@@ -53,33 +69,48 @@ int		print_decimal(int d, t_option *option)
 {
 	int		ret;
 	int		len;
+	int		sign;
 
 	ret = 0;
 	len = decimal_digit(d);
+	if (d < 0)
+	{
+		sign = 1;
+		d *= -1;
+	}
+	else
+		sign = 0;
+	if (sign == 1 && option->zero == 1 && option->pre == -1)
+	{
+		sign = 0;
+		ft_putchar('-');
+		ret++;
+	}
 	if (option->minus == 1)
 	{
-		if (d < 0)
+		if (sign == 1)
 		{
 			ft_putchar('-');
-			ret += 1;
-			d *= -1;
+			ret++;
 		}
-		ret += check_pre_num(len, option->pre);
+		ret += padding(len, option->pre);
 		ft_putnbr(d);
 		ret += len;
 	}
-	ret += fill_width(len, option->zero, option->width, option->minus);
+	if (sign == 1)
+		ret += fill_width_nbr(len + 1, option->zero, option->width, option->pre);
+	else
+		ret += fill_width_nbr(len, option->zero, option->width, option->pre);
 	if (option->minus == 0)
 	{
-		if (d < 0)
+		if (sign == 1)
 		{
 			ft_putchar('-');
-			ret += 1;
-			d *= -1;
+			ret++;
 		}
-		ret += check_pre_num(len, option->pre);
+		ret += padding(len, option->pre);
 		ft_putnbr(d);
-		ret+=len;
+		ret += len;
 	}
 	return (ret);
 }
