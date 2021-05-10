@@ -6,25 +6,25 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 12:27:48 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/10 16:22:38 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/10 17:16:42 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-int		fill_width_nbr(int len, int zero, int width, int pre)
+int		fill_width_nbr(int size, t_option *option)
 {
 	int		ret;
 
 	ret = 0;
-	while (len < width)
+	while (size < option->width)
 	{
-		if (zero == 1 && pre == -1)
+		if (option->zero == 1 && option->pre == -1)
 			ret += ft_putchar('0');
 		else
 			ret += ft_putchar(' ');
-		len++;
+		size++;
 	}
 	return (ret);
 }
@@ -65,24 +65,30 @@ int		padding(int len, int pre)
 
 int		print_decimal(int d, t_option *option)
 {
-	int		sign;
 	int		ret;
 	int		len;
+	int		sign;
+	int		size;
 
+	ret = 0;
+	len = decimal_digit(d);
+	if (len <= option->pre)
+		size = option->pre;
+	else
+		size = len;
 	if (d < 0)
 	{
 		sign = 1;
 		d *= -1;
+		size += 1;
 	}
 	else
 		sign = 0;
-	ret = 0;
-	len = decimal_digit(d);
-	if (sign == 1 && option->zero == 1 && option->pre < 0)
+	if (sign == 1 && option->zero == 1 && option->pre == -1)
 	{
+		sign = 0;
 		ft_putchar('-');
 		ret++;
-		sign = 0;
 	}
 	if (option->minus == 1)
 	{
@@ -92,14 +98,18 @@ int		print_decimal(int d, t_option *option)
 			ret++;
 		}
 		ret += padding(len, option->pre);
-		ft_putnbr(d);
+		if (d == 0 && option->pre == 0)
+		{
+			if (option->width == 0)
+				return (0);
+			else
+				ft_putchar(' ');
+		}
+		else
+			ft_putnbr(d);
 		ret += len;
-		len = ret;
 	}
-	if (sign == 1)
-		ret += fill_width_nbr(len + 1, option->zero, option->width, option->pre);
-	else
-		ret += fill_width_nbr(len, option->zero, option->width, option->pre);
+	ret += fill_width_nbr(size, option);
 	if (option->minus == 0)
 	{
 		if (sign == 1)
@@ -108,9 +118,16 @@ int		print_decimal(int d, t_option *option)
 			ret++;
 		}
 		ret += padding(len, option->pre);
-		ft_putnbr(d);
+		if (d == 0 && option->pre == 0)
+		{
+			if (option->width == 0)
+				return (0);
+			else
+				ft_putchar(' ');
+		}
+		else
+			ft_putnbr(d);
 		ret += len;
-		len = ret;
 	}
 	return (ret);
 }
