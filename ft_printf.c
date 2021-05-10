@@ -6,7 +6,7 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 16:57:52 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/10 14:33:22 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/10 16:20:02 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,10 +89,7 @@ int		parse(char *format, va_list ap)
 	while (format[i] != '\0')
 	{
 		while (format[i] != '%' && format[i] != '\0')
-		{
-			ft_putchar(format[i++]);
-			ret++;
-		}
+			ret += ft_putchar(format[i++]);
 		if (format[i] == '%')
 		{
 			init_option(option);

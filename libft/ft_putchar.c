@@ -6,13 +6,14 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 13:59:59 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/07 15:57:06 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/10 16:18:20 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar(char c)
+int		ft_putchar(char c)
 {
 	write(1, &c, 1);
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 12:27:48 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/10 15:39:55 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/10 16:22:38 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,10 @@ int		fill_width_nbr(int len, int zero, int width, int pre)
 	while (len < width)
 	{
 		if (zero == 1 && pre == -1)
-			ft_putchar('0');
+			ret += ft_putchar('0');
 		else
-			ft_putchar(' ');
+			ret += ft_putchar(' ');
 		len++;
-		ret++;
 	}
 	return (ret);
 }
@@ -57,9 +56,8 @@ int		padding(int len, int pre)
 	{
 		while (len < pre)
 		{
-			ft_putchar('0');
+			ret += ft_putchar('0');
 			len++;
-			ret++;
 		}
 		return (ret);
 	}
@@ -67,12 +65,10 @@ int		padding(int len, int pre)
 
 int		print_decimal(int d, t_option *option)
 {
+	int		sign;
 	int		ret;
 	int		len;
-	int		sign;
 
-	ret = 0;
-	len = decimal_digit(d);
 	if (d < 0)
 	{
 		sign = 1;
@@ -80,11 +76,13 @@ int		print_decimal(int d, t_option *option)
 	}
 	else
 		sign = 0;
-	if (sign == 1 && option->zero == 1 && option->pre == -1)
+	ret = 0;
+	len = decimal_digit(d);
+	if (sign == 1 && option->zero == 1 && option->pre < 0)
 	{
-		sign = 0;
 		ft_putchar('-');
 		ret++;
+		sign = 0;
 	}
 	if (option->minus == 1)
 	{
@@ -96,6 +94,7 @@ int		print_decimal(int d, t_option *option)
 		ret += padding(len, option->pre);
 		ft_putnbr(d);
 		ret += len;
+		len = ret;
 	}
 	if (sign == 1)
 		ret += fill_width_nbr(len + 1, option->zero, option->width, option->pre);
@@ -111,6 +110,7 @@ int		print_decimal(int d, t_option *option)
 		ret += padding(len, option->pre);
 		ft_putnbr(d);
 		ret += len;
+		len = ret;
 	}
 	return (ret);
 }

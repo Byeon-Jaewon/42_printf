@@ -6,15 +6,19 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 14:03:51 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/07 16:27:10 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/10 16:16:56 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char *s)
+int		ft_putstr(char *s)
 {
+	int		len;
+
+	len = ft_strlen(s);
 	if (s == 0)
-		return ;
-	write(1, s, ft_strlen(s));
+		return (0);
+	write(1, s, len);
+	return (len);
 }

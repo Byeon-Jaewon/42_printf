@@ -6,7 +6,7 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 13:47:12 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/07 17:01:10 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/10 16:19:02 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,10 @@ int		fill_width(int len, int zero, int width, int minus)
 	while (len < width)
 	{
 		if (zero == 1 && minus == 0)
-			ft_putchar('0');
+			ret += ft_putchar('0');
 		else
-			ft_putchar(' ');
+			ret += ft_putchar(' ');
 		len++;
-		ret++;
 	}
 	return (ret);
 }
@@ -35,16 +34,10 @@ int		print_char(int c, t_option *option)
 
 	ret = 0;
 	if (option->minus == 1)
-	{
-		ft_putchar(c);
-		ret++;
-	}
+		ret += ft_putchar(c);
 	ret += fill_width(1, option->zero, option->width, option->minus);
 	if (option->minus == 0)
-	{
-		ft_putchar(c);
-		ret++;
-	}
+		ret += ft_putchar(c);
 	return (ret);
 }
 

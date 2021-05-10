@@ -6,7 +6,7 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 14:01:02 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/07 14:04:22 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/10 16:15:44 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-void	ft_putchar(char c);
+int		ft_putchar(char c);
 int		ft_strchr(char *s, int c);
 int		ft_isdigit(int c);
 int		ft_strlen(char *str);
-void	ft_putstr(char *s);
-void	ft_putnbr(int n);
+int		ft_putstr(char *s);
+int		ft_putnbr(int n);
 
 #endif
