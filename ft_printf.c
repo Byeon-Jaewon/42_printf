@@ -6,7 +6,7 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 16:57:52 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/12 16:38:23 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/12 17:00:16 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,6 @@ int		print_type(t_option *option, va_list ap)
 	return (ret);
 }
 
-void	init_option(t_option *option)
-{
-	option->minus = 0;
-	option->zero = 0;
-	option->width = 0;
-	option->pre = -1;
-	option->type = 0;
-}
-
 void	set_wp(char *format, t_option *option, va_list ap, int i)
 {
 	if (ft_isdigit(format[i]))
@@ -65,6 +56,11 @@ void	set_wp(char *format, t_option *option, va_list ap, int i)
 		}
 		else
 			option->pre = va_arg(ap, int);
+	}
+	if (option->width < 0)
+	{
+		option->minus = 1;
+		option->width *= -1;
 	}
 }
 
@@ -99,15 +95,7 @@ int		parse(char *format, va_list ap)
 			init_option(option);
 			i++;
 			while (format[i] != '\0' && ft_strchr(TYPE, format[i]) == -1)
-			{
-				set_option(format, option, ap, i);
-				if (option->width < 0)
-				{
-					option->minus = 1;
-					option->width *= -1;
-				}
-				i++;
-			}
+				set_option(format, option, ap, i++);
 			if (ft_strchr(TYPE, format[i]) != -1)
 				option->type = ft_strchr(TYPE, format[i++]);
 			ret += print_type(option, ap);

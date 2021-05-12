@@ -6,7 +6,7 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 12:07:26 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/12 15:54:03 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/12 17:02:21 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct		s_option
 	int		type;
 }	t_option;
 
+void	init_option(t_option *option);
 int		print_char(int c, t_option *option);
 int		print_str(char *str, t_option *option);
 int		fill_width(int len, int zero, int width, int minus);

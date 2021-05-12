@@ -6,7 +6,7 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 13:54:10 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/12 16:03:02 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/12 16:59:12 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,13 @@ int		pointer_digit(unsigned long long p)
 		ret ++;
 	}
 	return (ret);
+}
+
+void	init_option(t_option *option)
+{
+	option->minus = 0;
+	option->zero = 0;
+	option->width = 0;
+	option->pre = -1;
+	option->type = 0;
 }
