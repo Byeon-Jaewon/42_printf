@@ -6,7 +6,7 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 16:57:52 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/12 14:11:01 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/12 14:37:53 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@ int		print_type(t_option *option, va_list ap)
 		ret += print_decimal(va_arg(ap, int), option);
 	else if (type == 5)
 		ret += print_uint(va_arg(ap, unsigned int), option);
+	else if (type == 6)
+		ret += print_x(va_arg(ap, unsigned int), option);
+	else if (type == 7)
+		ret += print_xx(va_arg(ap, unsigned int), option);
 	else if (type == 8)
 		ret += print_char('%', option);
 	return (ret);

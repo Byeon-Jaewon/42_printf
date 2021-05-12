@@ -6,38 +6,69 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 11:43:57 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/12 14:25:29 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/12 14:37:45 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		ft_putnbr_hex(long d)
+int		ft_putnbr_hex(unsigned int u)
 {
 	char	*hex;
+	int		ret;
 
 	hex = "0123456789abcdef";
-	if (d < 0)
-	{
-		d *= -1;
-		ft_putchar('-');
-		ft_putnbr_hex(d);
-	}
-	else if (d < 16)
-		ft_putchar(hex[d]);
+	ret = 0;
+	if (u < 16)
+		ret += ft_putchar(hex[u]);
 	else
 	{
-		ft_putnbr_hex(d / 16);
-		ft_putchar(hex[d % 16]);
+		ret += ft_putnbr_hex(u / 16);
+		ret += ft_putchar(hex[u % 16]);
 	}
+	return (ret);
 }
 
-int		print_hex(int d, t_option *option)
+int		padding_x(unsigned int u, int len, t_option *option)
 {
-	int		ret;
+	int		cnt;
+
+	cnt = 0;
+	if (option->pre > len || option->pre >= 0)
+	{
+		while (len < option->pre)
+		{
+			cnt += ft_putchar('0');
+			len++;
+		}
+	}
+	if (u == 0 && option->pre == 0)
+	{
+		if (option->width == 0)
+			return (0);
+		else
+			cnt += ft_putchar(' ');
+	}
+	else
+		cnt += ft_putnbr_hex(u);
+	return (cnt);
+}
+
+int		print_x(unsigned int u, t_option *option)
+{
 	int		len;
+	int		cnt;
+	int		size;
+	int		pad;
 
-	ret = 0;
-	len = hex_digit(d);
-
+	cnt = 0;
+	len = hex_digit(u);
+	size = check_size_u(len, option);
+	pad = check_padding(1, len, option);
+	if (option->minus == 1)
+		cnt += padding_x(u, len, option);
+	cnt += fill_width_nbr(cnt, pad, option);
+	if (option->minus == 0)
+		cnt += padding_x(u, len, option);
+	return (cnt);
 }

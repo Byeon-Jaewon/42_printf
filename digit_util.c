@@ -6,7 +6,7 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 13:54:10 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/12 14:25:04 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/12 14:27:41 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,17 +44,17 @@ int		unsigned_digit(unsigned int u)
 	return (ret);
 }
 
-int		hex_digit(unsigned int d)
+int		hex_digit(unsigned int u)
 {
 	int		ret;
 
-	if (d == 0)
+	if (u == 0)
 		ret = 1;
 	else
 		ret = 0;
-	while (d != 0)
+	while (u != 0)
 	{
-		d /= 16;
+		u /= 16;
 		ret ++;
 	}
 	return (ret);

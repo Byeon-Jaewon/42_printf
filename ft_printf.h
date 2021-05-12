@@ -6,7 +6,7 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 12:07:26 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/12 14:25:13 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/12 14:37:42 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,14 @@ int		padding_u(unsigned int u, int len, t_option *option);
 int		check_size_u(int len, t_option *option);
 int		print_uint(unsigned int u, t_option *option);
 
-int		hex_digit(unsigned int d)
+int		hex_digit(unsigned int d);
+int		ft_putnbr_hex(unsigned int u);
+int		padding_x(unsigned int u, int len, t_option *option);
+int		print_x(unsigned int u, t_option *option);
 
+int		ft_putnbr_HEX(unsigned int u);
+int		padding_xx(unsigned int u, int len, t_option *option);
+int		print_xx(unsigned int u, t_option *option);
 
 
 #endif

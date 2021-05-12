@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_u.c                                          :+:      :+:    :+:   */
+/*   print_xx.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 13:39:03 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/12 14:26:49 by jbyeon           ###   ########.fr       */
+/*   Created: 2021/05/07 11:43:57 by jbyeon            #+#    #+#             */
+/*   Updated: 2021/05/12 14:37:21 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		check_size_u(int len, t_option *option)
+int		ft_putnbr_HEX(unsigned int u)
 {
-	int		size;
+	char	*hex;
+	int		ret;
 
-	size = len;
-	if (size < option->pre)
-		size = option->pre;
-	if (size < option->width)
-		size = option->width;
-	return (size);
+	hex = "0123456789ABCDEF";
+	ret = 0;
+	if (u < 16)
+		ret += ft_putchar(hex[u]);
+	else
+	{
+		ret += ft_putnbr_HEX(u / 16);
+		ret += ft_putchar(hex[u % 16]);
+	}
+	return (ret);
 }
 
-int		padding_u(unsigned int u, int len, t_option *option)
+int		padding_xx(unsigned int u, int len, t_option *option)
 {
 	int		cnt;
 
@@ -45,24 +50,11 @@ int		padding_u(unsigned int u, int len, t_option *option)
 			cnt += ft_putchar(' ');
 	}
 	else
-		cnt += ft_putunbr(u);
+		cnt += ft_putnbr_HEX(u);
 	return (cnt);
 }
 
-int		ft_putunbr(unsigned int n)
-{
-	int		ret;
-
-	ret = 0;
-	if (n > 9)
-	{
-		ret += ft_putunbr(n / 10);
-	}
-	ret += ft_putchar((n % 10) + '0');
-	return (ret);
-}
-
-int		print_uint(unsigned int u, t_option *option)
+int		print_xx(unsigned int u, t_option *option)
 {
 	int		len;
 	int		cnt;
@@ -70,13 +62,13 @@ int		print_uint(unsigned int u, t_option *option)
 	int		pad;
 
 	cnt = 0;
-	len = unsigned_digit(u);
+	len = hex_digit(u);
 	size = check_size_u(len, option);
 	pad = check_padding(1, len, option);
 	if (option->minus == 1)
-		cnt += padding_u(u, len, option);
+		cnt += padding_xx(u, len, option);
 	cnt += fill_width_nbr(cnt, pad, option);
 	if (option->minus == 0)
-		cnt += padding_u(u, len, option);
+		cnt += padding_xx(u, len, option);
 	return (cnt);
 }
