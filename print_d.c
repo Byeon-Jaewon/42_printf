@@ -6,7 +6,7 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 12:27:48 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/12 15:55:05 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/12 16:52:45 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,18 +55,15 @@ int		fill_width_nbr(int cnt, int pad, t_option *option)
 	{
 		while (cnt < option->width)
 		{
-		if (option->zero == 1 && option->pre == -1)
-			ret += ft_putchar('0');
-		else
 			ret += ft_putchar(' ');
-		cnt += 1;
+			cnt += 1;
 		}
 	}
 	else
 	{
 		while (cnt < option->width - pad)
 		{
-		if (option->zero == 1 && option->pre == -1)
+		if (option->zero == 1 && option->pre < 0)
 			ret += ft_putchar('0');
 		else
 			ret += ft_putchar(' ');

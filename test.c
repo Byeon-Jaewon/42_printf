@@ -6,7 +6,7 @@ int	main(void)
 	int	num = 10;
 	int *c = &num;
 
-	printf("sdasdsadsa%-05", c);
+	printf("%0*.*i",2,-2,8);
 
 	return 0;
 }

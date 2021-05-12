@@ -1,0 +1,439 @@
+
+------------------------------
+|        string.c            |
+|                            |
+------------------------------
+
+make: `libftprintf.a' is up to date.
+Ouch, compile error, maybe from here maybe not
+Please select: 1, 2, 3, or 4
+
+
+[ next (1) ]  |  [ show diff (2) ]  |  [ show printf results ] (3)  |  [ show ft_printf results ] (4)  |
+
+rm -f ./ft_printf.o ./digit_util.o ./print_p.o ./print_cs.o ./print_d.o ./print_u.o ./print_x.o ./print_xx.o
+make clean -C libft
+rm -f ft_isdigit.o ft_strchr.o ft_strlen.o ft_putchar.o ft_putstr.o ft_putnbr.o
+rm -f libftprintf.a
+make fclean -C libft
+rm -f ft_isdigit.o ft_strchr.o ft_strlen.o ft_putchar.o ft_putstr.o ft_putnbr.o
+rm -f libft.a
+------------------------------
+|        number.c            |
+|                            |
+------------------------------
+
+gcc -Wall -Wextra -Werror -c ft_printf.c -o ft_printf.o -I.
+gcc -Wall -Wextra -Werror -c digit_util.c -o digit_util.o -I.
+gcc -Wall -Wextra -Werror -c print_p.c -o print_p.o -I.
+gcc -Wall -Wextra -Werror -c print_cs.c -o print_cs.o -I.
+gcc -Wall -Wextra -Werror -c print_d.c -o print_d.o -I.
+gcc -Wall -Wextra -Werror -c print_u.c -o print_u.o -I.
+gcc -Wall -Wextra -Werror -c print_x.c -o print_x.o -I.
+gcc -Wall -Wextra -Werror -c print_xx.c -o print_xx.o -I.
+make all -C libft/
+gcc  -c ft_isdigit.c ft_strchr.c ft_strlen.c ft_putchar.c ft_putstr.c ft_putnbr.c
+ar rc libft.a ft_isdigit.o ft_strchr.o ft_strlen.o ft_putchar.o ft_putstr.o ft_putnbr.o
+cp libft/libft.a libftprintf.a
+ar rc libftprintf.a ./ft_printf.o ./digit_util.o ./print_p.o ./print_cs.o ./print_d.o ./print_u.o ./print_x.o ./print_xx.o
+Ouch, compile error, maybe from here maybe not
+Please select: 1, 2, 3, or 4
+
+
+[ next (1) ]  |  [ show diff (2) ]  |  [ show printf results ] (3)  |  [ show ft_printf results ] (4)  |
+
+rm -f ./ft_printf.o ./digit_util.o ./print_p.o ./print_cs.o ./print_d.o ./print_u.o ./print_x.o ./print_xx.o
+make clean -C libft
+rm -f ft_isdigit.o ft_strchr.o ft_strlen.o ft_putchar.o ft_putstr.o ft_putnbr.o
+rm -f libftprintf.a
+make fclean -C libft
+rm -f ft_isdigit.o ft_strchr.o ft_strlen.o ft_putchar.o ft_putstr.o ft_putnbr.o
+rm -f libft.a
+------------------------------
+|        char.c              |
+|                            |
+------------------------------
+
+gcc -Wall -Wextra -Werror -c ft_printf.c -o ft_printf.o -I.
+gcc -Wall -Wextra -Werror -c digit_util.c -o digit_util.o -I.
+gcc -Wall -Wextra -Werror -c print_p.c -o print_p.o -I.
+gcc -Wall -Wextra -Werror -c print_cs.c -o print_cs.o -I.
+gcc -Wall -Wextra -Werror -c print_d.c -o print_d.o -I.
+gcc -Wall -Wextra -Werror -c print_u.c -o print_u.o -I.
+gcc -Wall -Wextra -Werror -c print_x.c -o print_x.o -I.
+gcc -Wall -Wextra -Werror -c print_xx.c -o print_xx.o -I.
+make all -C libft/
+gcc  -c ft_isdigit.c ft_strchr.c ft_strlen.c ft_putchar.c ft_putstr.c ft_putnbr.c
+ar rc libft.a ft_isdigit.o ft_strchr.o ft_strlen.o ft_putchar.o ft_putstr.o ft_putnbr.o
+cp libft/libft.a libftprintf.a
+ar rc libftprintf.a ./ft_printf.o ./digit_util.o ./print_p.o ./print_cs.o ./print_d.o ./print_u.o ./print_x.o ./print_xx.o
+Ouch, compile error, maybe from here maybe not
+Please select: 1, 2, 3, or 4
+
+
+[ next (1) ]  |  [ show diff (2) ]  |  [ show printf results ] (3)  |  [ show ft_printf results ] (4)  |
+
+rm -f ./ft_printf.o ./digit_util.o ./print_p.o ./print_cs.o ./print_d.o ./print_u.o ./print_x.o ./print_xx.o
+make clean -C libft
+rm -f ft_isdigit.o ft_strchr.o ft_strlen.o ft_putchar.o ft_putstr.o ft_putnbr.o
+rm -f libftprintf.a
+make fclean -C libft
+rm -f ft_isdigit.o ft_strchr.o ft_strlen.o ft_putchar.o ft_putstr.o ft_putnbr.o
+rm -f libft.a
+------------------------------
+|        unsigned_int.c      |
+|                            |
+------------------------------
+
+gcc -Wall -Wextra -Werror -c ft_printf.c -o ft_printf.o -I.
+gcc -Wall -Wextra -Werror -c digit_util.c -o digit_util.o -I.
+gcc -Wall -Wextra -Werror -c print_p.c -o print_p.o -I.
+gcc -Wall -Wextra -Werror -c print_cs.c -o print_cs.o -I.
+gcc -Wall -Wextra -Werror -c print_d.c -o print_d.o -I.
+gcc -Wall -Wextra -Werror -c print_u.c -o print_u.o -I.
+gcc -Wall -Wextra -Werror -c print_x.c -o print_x.o -I.
+gcc -Wall -Wextra -Werror -c print_xx.c -o print_xx.o -I.
+make all -C libft/
+gcc  -c ft_isdigit.c ft_strchr.c ft_strlen.c ft_putchar.c ft_putstr.c ft_putnbr.c
+ar rc libft.a ft_isdigit.o ft_strchr.o ft_strlen.o ft_putchar.o ft_putstr.o ft_putnbr.o
+cp libft/libft.a libftprintf.a
+ar rc libftprintf.a ./ft_printf.o ./digit_util.o ./print_p.o ./print_cs.o ./print_d.o ./print_u.o ./print_x.o ./print_xx.o
+Ouch, compile error, maybe from here maybe not
+Please select: 1, 2, 3, or 4
+
+
+[ next (1) ]  |  [ show diff (2) ]  |  [ show printf results ] (3)  |  [ show ft_printf results ] (4)  |
+
+rm -f ./ft_printf.o ./digit_util.o ./print_p.o ./print_cs.o ./print_d.o ./print_u.o ./print_x.o ./print_xx.o
+make clean -C libft
+rm -f ft_isdigit.o ft_strchr.o ft_strlen.o ft_putchar.o ft_putstr.o ft_putnbr.o
+rm -f libftprintf.a
+make fclean -C libft
+rm -f ft_isdigit.o ft_strchr.o ft_strlen.o ft_putchar.o ft_putstr.o ft_putnbr.o
+rm -f libft.a
+------------------------------
+|        hexa.c              |
+|                            |
+------------------------------
+
+gcc -Wall -Wextra -Werror -c ft_printf.c -o ft_printf.o -I.
+gcc -Wall -Wextra -Werror -c digit_util.c -o digit_util.o -I.
+gcc -Wall -Wextra -Werror -c print_p.c -o print_p.o -I.
+gcc -Wall -Wextra -Werror -c print_cs.c -o print_cs.o -I.
+gcc -Wall -Wextra -Werror -c print_d.c -o print_d.o -I.
+gcc -Wall -Wextra -Werror -c print_u.c -o print_u.o -I.
+gcc -Wall -Wextra -Werror -c print_x.c -o print_x.o -I.
+gcc -Wall -Wextra -Werror -c print_xx.c -o print_xx.o -I.
+make all -C libft/
+gcc  -c ft_isdigit.c ft_strchr.c ft_strlen.c ft_putchar.c ft_putstr.c ft_putnbr.c
+ar rc libft.a ft_isdigit.o ft_strchr.o ft_strlen.o ft_putchar.o ft_putstr.o ft_putnbr.o
+cp libft/libft.a libftprintf.a
+ar rc libftprintf.a ./ft_printf.o ./digit_util.o ./print_p.o ./print_cs.o ./print_d.o ./print_u.o ./print_x.o ./print_xx.o
+Ouch, compile error, maybe from here maybe not
+Please select: 1, 2, 3, or 4
+
+
+[ next (1) ]  |  [ show diff (2) ]  |  [ show printf results ] (3)  |  [ show ft_printf results ] (4)  |
+
+rm -f ./ft_printf.o ./digit_util.o ./print_p.o ./print_cs.o ./print_d.o ./print_u.o ./print_x.o ./print_xx.o
+make clean -C libft
+rm -f ft_isdigit.o ft_strchr.o ft_strlen.o ft_putchar.o ft_putstr.o ft_putnbr.o
+rm -f libftprintf.a
+make fclean -C libft
+rm -f ft_isdigit.o ft_strchr.o ft_strlen.o ft_putchar.o ft_putstr.o ft_putnbr.o
+rm -f libft.a
+------------------------------
+|        percent.c           |
+|                            |
+------------------------------
+
+gcc -Wall -Wextra -Werror -c ft_printf.c -o ft_printf.o -I.
+gcc -Wall -Wextra -Werror -c digit_util.c -o digit_util.o -I.
+gcc -Wall -Wextra -Werror -c print_p.c -o print_p.o -I.
+gcc -Wall -Wextra -Werror -c print_cs.c -o print_cs.o -I.
+gcc -Wall -Wextra -Werror -c print_d.c -o print_d.o -I.
+gcc -Wall -Wextra -Werror -c print_u.c -o print_u.o -I.
+gcc -Wall -Wextra -Werror -c print_x.c -o print_x.o -I.
+gcc -Wall -Wextra -Werror -c print_xx.c -o print_xx.o -I.
+make all -C libft/
+gcc  -c ft_isdigit.c ft_strchr.c ft_strlen.c ft_putchar.c ft_putstr.c ft_putnbr.c
+ar rc libft.a ft_isdigit.o ft_strchr.o ft_strlen.o ft_putchar.o ft_putstr.o ft_putnbr.o
+cp libft/libft.a libftprintf.a
+ar rc libftprintf.a ./ft_printf.o ./digit_util.o ./print_p.o ./print_cs.o ./print_d.o ./print_u.o ./print_x.o ./print_xx.o
+Ouch, compile error, maybe from here maybe not
+Please select: 1, 2, 3, or 4
+
+
+[ next (1) ]  |  [ show diff (2) ]  |  [ show printf results ] (3)  |  [ show ft_printf results ] (4)  |
+
+rm -f ./ft_printf.o ./digit_util.o ./print_p.o ./print_cs.o ./print_d.o ./print_u.o ./print_x.o ./print_xx.o
+make clean -C libft
+rm -f ft_isdigit.o ft_strchr.o ft_strlen.o ft_putchar.o ft_putstr.o ft_putnbr.o
+rm -f libftprintf.a
+make fclean -C libft
+rm -f ft_isdigit.o ft_strchr.o ft_strlen.o ft_putchar.o ft_putstr.o ft_putnbr.o
+rm -f libft.a
+------------------------------
+|        pointer.c           |
+|                            |
+------------------------------
+
+gcc -Wall -Wextra -Werror -c ft_printf.c -o ft_printf.o -I.
+gcc -Wall -Wextra -Werror -c digit_util.c -o digit_util.o -I.
+gcc -Wall -Wextra -Werror -c print_p.c -o print_p.o -I.
+gcc -Wall -Wextra -Werror -c print_cs.c -o print_cs.o -I.
+gcc -Wall -Wextra -Werror -c print_d.c -o print_d.o -I.
+gcc -Wall -Wextra -Werror -c print_u.c -o print_u.o -I.
+gcc -Wall -Wextra -Werror -c print_x.c -o print_x.o -I.
+gcc -Wall -Wextra -Werror -c print_xx.c -o print_xx.o -I.
+make all -C libft/
+gcc  -c ft_isdigit.c ft_strchr.c ft_strlen.c ft_putchar.c ft_putstr.c ft_putnbr.c
+ar rc libft.a ft_isdigit.o ft_strchr.o ft_strlen.o ft_putchar.o ft_putstr.o ft_putnbr.o
+cp libft/libft.a libftprintf.a
+ar rc libftprintf.a ./ft_printf.o ./digit_util.o ./print_p.o ./print_cs.o ./print_d.o ./print_u.o ./print_x.o ./print_xx.o
+Ouch, compile error, maybe from here maybe not
+Please select: 1, 2, 3, or 4
+
+
+[ next (1) ]  |  [ show diff (2) ]  |  [ show printf results ] (3)  |  [ show ft_printf results ] (4)  |
+
+rm -f ./ft_printf.o ./digit_util.o ./print_p.o ./print_cs.o ./print_d.o ./print_u.o ./print_x.o ./print_xx.o
+make clean -C libft
+rm -f ft_isdigit.o ft_strchr.o ft_strlen.o ft_putchar.o ft_putstr.o ft_putnbr.o
+rm -f libftprintf.a
+make fclean -C libft
+rm -f ft_isdigit.o ft_strchr.o ft_strlen.o ft_putchar.o ft_putstr.o ft_putnbr.o
+rm -f libft.a
+######### 42TESTERS-PRINTF ##########
+#####42TESTS-PRINTF#####
+----------Test 156 : ----------
+"%0*.*i, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d" // 1st '*' = 2, 2nd '*' = -2
+
+1c1
+<  8, -12, 123456789,  0, -12345678, 97, -2147483648, 2147483647 --- Return : 62
+---
+> 08, -12, 123456789, 00, -12345678, 97, -2147483648, 2147483647 --- Return : 62
+
+----------Test 177 : ----------
+"%0*.*i, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d" // 1st '*' = 3, 2nd '*' = -2
+
+1c1
+<   8, -12, 123456789,   0, -12345678,  97, -2147483648, 2147483647 --- Return : 65
+---
+> 008, -12, 123456789, 000, -12345678, 097, -2147483648, 2147483647 --- Return : 65
+
+----------Test 198 : ----------
+"%0*.*i, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d" // 1st '*' = 4, 2nd '*' = -2
+
+1c1
+<    8, - 12, 123456789,    0, -12345678,   97, -2147483648, 2147483647 --- Return : 69
+---
+> 0008, -012, 123456789, 0000, -12345678, 0097, -2147483648, 2147483647 --- Return : 69
+
+#########PFT##########
+Test 647 (moul_star_2) : FAILED.$
+    First line of code: {return test("%% *.5i 42 == |% *.5i|$
+", 4, 42);}$
+      expected output : "% *.5i 42 == | 00042|$
+"$
+      your output     : "% *.5i 42 == |00042|$
+"$
+      expected (nonprintable as hex) : "% *.5i 42 == | 00042|\x0a"$
+      actual   (nonprintable as hex) : "% *.5i 42 == |00042|\x0a"$
+$
+Test 4192 (notintsubject_o_neg_prec_star_01) : FAILED.$
+    First line of code: {return test("%.*o", -3, 12345);}$
+      expected output : "30071"$
+      your output     : "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"$
+      expected (nonprintable as hex) : "30071"$
+      actual   (nonprintable as hex) : "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"$
+$
+Test 4193 (notintsubject_o_neg_prec_star_02) : FAILED.$
+    First line of code: {return test("%.*o", -1, 12345);}$
+      expected output : "30071"$
+      your output     : "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"$
+      expected (nonprintable as hex) : "30071"$
+      actual   (nonprintable as hex) : "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"$
+$
+Test 4194 (notintsubject_o_neg_prec_star_03) : FAILED.$
+    First line of code: {return test("%.*o", -1, 0);}$
+      expected output : "0"$
+      your output     : "17f3ee6c"$
+      expected (nonprintable as hex) : "0"$
+      actual   (nonprintable as hex) : "17f3ee6c"$
+$
+#########PFT_2019##########
+WARNING: The return values reported here may be bugged on some systems.$
+          See https://github.com/gavinfielder/pft/issues/11$
+          Run in non-fork mode (-X) to ensure accurate return value$
+          reporting, set IGNORE_RETURN_VALUE=1 in options-config.ini,$
+          or run test_pipes.sh to see if your system has this bug.$
+          This bug does not affect the pass/fail result of a test, nor$
+          the function output--only the reported return value.$
+$
+$
+Test  11 (nocrash_nullspec_basic) : FAILED.$
+    (nocrash test: automatically passes provided no unexpected failure)$
+    First line of code: {return test("%");}$
+    SEGFAULT$
+$
+Test  12 (nocrash_nullspec_5w) : FAILED.$
+    (nocrash test: automatically passes provided no unexpected failure)$
+    First line of code: {return test("%5");}$
+    SEGFAULT$
+$
+Test  13 (nocrash_nullspec_5wzp) : FAILED.$
+    (nocrash test: automatically passes provided no unexpected failure)$
+    First line of code: {return test("%05");}$
+    SEGFAULT$
+$
+Test  14 (nocrash_nullspec_5wzplj) : FAILED.$
+    (nocrash test: automatically passes provided no unexpected failure)$
+    First line of code: {return test("%-05");}$
+    SEGFAULT$
+$
+Test  15 (nocrash_nullspec_5wlj) : FAILED.$
+    (nocrash test: automatically passes provided no unexpected failure)$
+    First line of code: {return test("%-5");}$
+    SEGFAULT$
+$
+Test 479 (nocrash_noarg_1_notmandatory) : FAILED.$
+    (nocrash test: automatically passes provided no unexpected failure)$
+    First line of code: {return test("%1$"); }$
+    SEGFAULT$
+$
+Test 480 (nocrash_noarg_2_notmandatory) : FAILED.$
+    (nocrash test: automatically passes provided no unexpected failure)$
+    First line of code: {return test("%0"); }$
+    SEGFAULT$
+$
+Test 481 (nocrash_noarg_3_notmandatory) : FAILED.$
+    (nocrash test: automatically passes provided no unexpected failure)$
+    First line of code: {return test("% "); }$
+    SEGFAULT$
+$
+Test 482 (nocrash_noarg_4_notmandatory) : FAILED.$
+    (nocrash test: automatically passes provided no unexpected failure)$
+    First line of code: {return test("%#"); }$
+    SEGFAULT$
+$
+Test 483 (nocrash_noarg_5_notmandatory) : FAILED.$
+    (nocrash test: automatically passes provided no unexpected failure)$
+    First line of code: {return test("%-"); }$
+    SEGFAULT$
+$
+Test 484 (nocrash_noarg_6_notmandatory) : FAILED.$
+    (nocrash test: automatically passes provided no unexpected failure)$
+    First line of code: {return test("%+"); }$
+    SEGFAULT$
+$
+Test 485 (nocrash_noarg_9_notmandatory) : FAILED.$
+    (nocrash test: automatically passes provided no unexpected failure)$
+    First line of code: {return test("%23"); }$
+    SEGFAULT$
+$
+Test 486 (nocrash_noarg_10_notmandatory) : FAILED.$
+    (nocrash test: automatically passes provided no unexpected failure)$
+    First line of code: {return test("%."); }$
+    SEGFAULT$
+$
+Test 487 (nocrash_noarg_11_notmandatory) : FAILED.$
+    (nocrash test: automatically passes provided no unexpected failure)$
+    First line of code: {return test("%hh"); }$
+    SEGFAULT$
+$
+Test 488 (nocrash_noarg_12_notmandatory) : FAILED.$
+    (nocrash test: automatically passes provided no unexpected failure)$
+    First line of code: {return test("%h"); }$
+    SEGFAULT$
+$
+Test 489 (nocrash_noarg_13_notmandatory) : FAILED.$
+    (nocrash test: automatically passes provided no unexpected failure)$
+    First line of code: {return test("%ll"); }$
+    SEGFAULT$
+$
+Test 490 (nocrash_noarg_14_notmandatory) : FAILED.$
+    (nocrash test: automatically passes provided no unexpected failure)$
+    First line of code: {return test("%l"); }$
+    SEGFAULT$
+$
+Test 491 (nocrash_noarg_15_notmandatory) : FAILED.$
+    (nocrash test: automatically passes provided no unexpected failure)$
+    First line of code: {return test("%L"); }$
+    SEGFAULT$
+$
+Test 497 (nocrash_noarg_22_notmandatory) : FAILED.$
+    (nocrash test: automatically passes provided no unexpected failure)$
+    First line of code: {return test("%f"); }$
+    SEGFAULT$
+$
+Test 499 (nocrash_noarg_25_notmandatory) : FAILED.$
+    (nocrash test: automatically passes provided no unexpected failure)$
+    First line of code: {return test("%o"); }$
+    SEGFAULT$
+$
+Test 615 (nocrash_mandatory_f_size_hh) : FAILED.$
+    (nocrash test: automatically passes provided no unexpected failure)$
+    First line of code: {return test("%hhf", 42.5);}$
+    SEGFAULT$
+$
+Test 616 (nocrash_mandatory_f_size_h) : FAILED.$
+    (nocrash test: automatically passes provided no unexpected failure)$
+    First line of code: {return test("%hf", 42.5);}$
+    SEGFAULT$
+$
+Test 617 (nocrash_mandatory_f_size_ll) : FAILED.$
+    (nocrash test: automatically passes provided no unexpected failure)$
+    First line of code: {return test("%llf", 42.5);}$
+    SEGFAULT$
+$
+Test 618 (nocrash_mandatory_f_size_lll) : FAILED.$
+    (nocrash test: automatically passes provided no unexpected failure)$
+    First line of code: {return test("%lllf", 42.5);}$
+    SEGFAULT$
+$
+Test 619 (nocrash_mandatory_f_size_llll) : FAILED.$
+    (nocrash test: automatically passes provided no unexpected failure)$
+    First line of code: {return test("%llllf", 42.5);}$
+    SEGFAULT$
+$
+Test 620 (nocrash_mandatory_f_size_LL) : FAILED.$
+    (nocrash test: automatically passes provided no unexpected failure)$
+    First line of code: {return test("%LLf", 42.5);}$
+    SEGFAULT$
+$
+Test 621 (nocrash_mandatory_f_size_Ll) : FAILED.$
+    (nocrash test: automatically passes provided no unexpected failure)$
+    First line of code: {return test("%Llf", 42.5);}$
+    SEGFAULT$
+$
+Test 622 (nocrash_mandatory_f_size_lL) : FAILED.$
+    (nocrash test: automatically passes provided no unexpected failure)$
+    First line of code: {return test("%lLf", 42.5);}$
+    SEGFAULT$
+$
+Test 623 (nocrash_mandatory_f_lj_nowidth) : FAILED.$
+    (nocrash test: automatically passes provided no unexpected failure)$
+    First line of code: {return test("%-f", 42.5);}$
+    SEGFAULT$
+$
+######### printf_lover_v2 ##########
+######### printf-tester ##########
+######### ft_printf_test ##########
+- [OUTPUT] ft_printf("{%05.*d}", -15, 42)
+   expected: "{00042}"
+   actual:   "{   42}"
+
+- [OUTPUT] ft_printf("%-171.108s%0022.*u%-93.114u%*c" ,"r>KM,cWZ,k7U",-75,1057557429u,580880397u,-25,-80)
+   expected: "r>KM,cWZ,k7U                                                                                                                                                               0000000000001057557429000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000580880397                        \b0"
+   actual:   "r>KM,cWZ,k7U                                                                                                                                                                           1057557429000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000580880397                        \b0"
+
+- [OUTPUT] ft_printf("%-12.*s%98.128s%--8p%095.*i%00182.193x" ,139,"o=Z*[","9S14l$RgnTv`-Wm",(void*)3870843096944218592lu,-156,201214506,1134523837u)
+   expected: "o=Z*[                                                                                          9S14l$RgnTv`-Wm0x35b7ff49bea211e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000020121450600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000439f75bd"
+   actual:   "o=Z*[                                                                                          9S14l$RgnTv`-Wm0x35b7ff49bea211e0                                                                                      20121450600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000439f75bd"
+
+- [OUTPUT] ft_printf("%-66p%-90c%--*.69x%0045.*u" ,(void*)9420165689360028937lu,-29,-122,174318236u,-127,2553740548u)
+   expected: "0x82bb26c8c7a09509                                                                                                                                         00000000000000000000000000000000000000000000000000000000000000a63e29c                                                     000000000000000000000000000000000002553740548\e3"
+   actual:   "0x82bb26c8c7a09509                                                                                                                                         00000000000000000000000000000000000000000000000000000000000000a63e29c                                                                                        2553740548\e3"
+
+######### Test-42 ##########

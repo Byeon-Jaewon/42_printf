@@ -6,7 +6,7 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 14:40:03 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/12 16:10:02 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/12 16:43:20 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		ft_putnbr_pointer(unsigned long long p)
 		ret += ft_putchar(hex[p]);
 	else
 	{
-		ret += ft_putnbr_hex(p / 16);
+		ret += ft_putnbr_pointer(p / 16);
 		ret += ft_putchar(hex[p % 16]);
 	}
 	return (ret);
