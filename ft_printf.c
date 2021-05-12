@@ -6,7 +6,7 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 16:57:52 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/12 14:37:53 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/12 16:23:58 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int		print_type(t_option *option, va_list ap)
 		ret += print_char(va_arg(ap, int), option);
 	else if (type == 1)
 		ret += print_str(va_arg(ap, char *), option);
-	//else if (type == 2)
-	//	ret += print_pointer(va_arg(ap, char*), option);
+	else if (type == 2)
+		ret += print_p(va_arg(ap, unsigned long long), option);
 	else if (type == 3 || type == 4)
 		ret += print_decimal(va_arg(ap, int), option);
 	else if (type == 5)
@@ -110,6 +110,11 @@ int		parse(char *format, va_list ap)
 			}
 			if (ft_strchr(TYPE, format[i]) != -1)
 				option->type = ft_strchr(TYPE, format[i++]);
+			else
+			{
+				free(option);
+				return (ret);
+			}
 			ret += print_type(option, ap);
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 12:07:26 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/12 14:37:42 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/12 15:54:03 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,6 @@ int		ft_putnbr_HEX(unsigned int u);
 int		padding_xx(unsigned int u, int len, t_option *option);
 int		print_xx(unsigned int u, t_option *option);
 
-
+int		pointer_digit(unsigned long long p);
+int		print_p(unsigned long long p, t_option *option);
 #endif

@@ -6,7 +6,7 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 12:27:48 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/12 14:00:14 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/12 15:55:05 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ int		check_padding(int d, int len, t_option *option)
 		ret = option->pre;
 	if (d < 0)
 		ret += 1;
+	if (d == 16)
+		ret += 2;
 	return (ret);
 }
 
@@ -68,7 +70,7 @@ int		fill_width_nbr(int cnt, int pad, t_option *option)
 			ret += ft_putchar('0');
 		else
 			ret += ft_putchar(' ');
-		cnt += 1;
+		cnt++;
 		}
 	}
 	return (ret);
