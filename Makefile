@@ -6,7 +6,7 @@
 #    By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/06 15:41:50 by jbyeon            #+#    #+#              #
-#    Updated: 2021/05/07 14:08:10 by jbyeon           ###   ########.fr        #
+#    Updated: 2021/05/12 14:10:17 by jbyeon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@ NAME		= libftprintf.a
 LIBFT		= libft
 LIBFT_LIB 	= libft.a
 
-SRCS		= ./ft_printf.c \
-			  ./print_cs.c ./print_d.c
+SRCS		= ./ft_printf.c ./digit_util.c\
+			  ./print_cs.c ./print_d.c ./print_u.c
 OBJS		= $(SRCS:.c=.o)
 INCS		= .
 RM			= rm -f

@@ -1,43 +1,61 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_x.c                                          :+:      :+:    :+:   */
+/*   digit_util.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/07 11:43:57 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/12 14:25:29 by jbyeon           ###   ########.fr       */
+/*   Created: 2021/05/12 13:54:10 by jbyeon            #+#    #+#             */
+/*   Updated: 2021/05/12 14:25:04 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		ft_putnbr_hex(long d)
-{
-	char	*hex;
-
-	hex = "0123456789abcdef";
-	if (d < 0)
-	{
-		d *= -1;
-		ft_putchar('-');
-		ft_putnbr_hex(d);
-	}
-	else if (d < 16)
-		ft_putchar(hex[d]);
-	else
-	{
-		ft_putnbr_hex(d / 16);
-		ft_putchar(hex[d % 16]);
-	}
-}
-
-int		print_hex(int d, t_option *option)
+int		decimal_digit(int d)
 {
 	int		ret;
-	int		len;
 
-	ret = 0;
-	len = hex_digit(d);
+	if (d == 0)
+		ret = 1;
+	else
+		ret = 0;
+	while (d != 0)
+	{
+		d /= 10;
+		ret++;
+	}
+	return (ret);
+}
 
+int		unsigned_digit(unsigned int u)
+{
+	int		ret;
+
+	if (u == 0)
+		ret = 1;
+	else
+		ret = 0;
+	while (u != 0)
+	{
+		u /= 10;
+		ret++;
+	}
+	return (ret);
+}
+
+int		hex_digit(unsigned int d)
+{
+	int		ret;
+
+	if (d == 0)
+		ret = 1;
+	else
+		ret = 0;
+	while (d != 0)
+	{
+		d /= 16;
+		ret ++;
+	}
+	return (ret);
 }

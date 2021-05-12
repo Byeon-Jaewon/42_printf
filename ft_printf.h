@@ -6,7 +6,7 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 12:07:26 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/10 14:32:22 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/12 14:25:13 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,20 @@ int		check_pre(char *str, int len, int pre);
 
 int		print_decimal(int d, t_option *option);
 int		decimal_digit(int d);
-//libft
-/*
-void	ft_putchar(char c);
-int		ft_strchr(char *s, int c);
-int		ft_isdigit(int c);
-int		ft_strlen(char *str);
-void	ft_putstr(char *s);
-void	ft_putnbr(int n);*/
+int		padding(int d, int len, int sign, t_option *option);
+int		fill_width_nbr(int cnt, int pad, t_option *option);
+int		check_padding(int d, int len, t_option *option);
+int		decimal_digit(int d);
+int		check_size(int d, t_option *option);
+
+int		unsigned_digit(unsigned int u);
+int		ft_putunbr(unsigned int n);
+int		padding_u(unsigned int u, int len, t_option *option);
+int		check_size_u(int len, t_option *option);
+int		print_uint(unsigned int u, t_option *option);
+
+int		hex_digit(unsigned int d)
+
+
 
 #endif

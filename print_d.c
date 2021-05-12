@@ -6,7 +6,7 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 12:27:48 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/12 12:57:58 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/12 14:00:14 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,6 @@ int		check_size(int d, t_option *option)
 	if (size < option->width)
 		size = option->width;
 	return (size);
-}
-
-int		decimal_digit(int d)
-{
-	int		ret;
-
-	if (d == 0)
-		ret = 1;
-	else
-		ret = 0;
-	while (d != 0)
-	{
-		d /= 10;
-		ret++;
-	}
-	return (ret);
 }
 
 int		check_padding(int d, int len, t_option *option)
