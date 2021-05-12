@@ -6,27 +6,29 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 12:27:48 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/10 17:16:42 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/12 12:57:58 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-int		fill_width_nbr(int size, t_option *option)
+int		check_size(int d, t_option *option)
 {
-	int		ret;
+	int		size;
 
-	ret = 0;
-	while (size < option->width)
+	size = decimal_digit(d);
+	if (d < 0)
+		size += 1;
+	if (size < option->pre)
 	{
-		if (option->zero == 1 && option->pre == -1)
-			ret += ft_putchar('0');
-		else
-			ret += ft_putchar(' ');
-		size++;
+		size = option->pre;
+		if (d < 0)
+			size += 1;
 	}
-	return (ret);
+	if (size < option->width)
+		size = option->width;
+	return (size);
 }
 
 int		decimal_digit(int d)
@@ -45,89 +47,99 @@ int		decimal_digit(int d)
 	return (ret);
 }
 
-int		padding(int len, int pre)
+int		check_padding(int d, int len, t_option *option)
+{
+	int		ret;
+
+	ret = len;
+
+	if (ret < option->pre)
+		ret = option->pre;
+	if (d < 0)
+		ret += 1;
+	return (ret);
+}
+
+int		fill_width_nbr(int cnt, int pad, t_option *option)
 {
 	int		ret;
 
 	ret = 0;
-	if (pre <= len || pre < 0)
-		return (0);
+	if (option->minus == 1)
+	{
+		while (cnt < option->width)
+		{
+		if (option->zero == 1 && option->pre == -1)
+			ret += ft_putchar('0');
+		else
+			ret += ft_putchar(' ');
+		cnt += 1;
+		}
+	}
 	else
 	{
-		while (len < pre)
+		while (cnt < option->width - pad)
 		{
+		if (option->zero == 1 && option->pre == -1)
 			ret += ft_putchar('0');
+		else
+			ret += ft_putchar(' ');
+		cnt += 1;
+		}
+	}
+	return (ret);
+}
+
+int		padding(int d, int len, int sign, t_option *option)
+{
+	int		cnt;
+
+	cnt = 0;
+	if (sign == 0 && d < 0)
+		cnt += ft_putchar('-');
+	if (option->pre > len || option->pre >= 0)
+	{
+		while (len < option->pre)
+		{
+			cnt += ft_putchar('0');
 			len++;
 		}
-		return (ret);
 	}
+	if (d == 0 && option->pre == 0)
+	{
+		if (option->width == 0)
+			return (0);
+		else
+			cnt += ft_putchar(' ');
+	}
+	else
+		cnt += ft_putnbr(d);
+	return (cnt);
 }
 
 int		print_decimal(int d, t_option *option)
 {
-	int		ret;
 	int		len;
-	int		sign;
+	int		cnt;
 	int		size;
+	int		pad;
+	int		sign;
 
-	ret = 0;
+	cnt = 0;
+	sign = 0;
 	len = decimal_digit(d);
-	if (len <= option->pre)
-		size = option->pre;
-	else
-		size = len;
-	if (d < 0)
+	size = check_size(d, option);
+	pad = check_padding(d, len, option);
+	if (d < 0 && option->pre < 0 && (option->minus == 1 || option->zero == 1))
 	{
+		cnt += ft_putchar('-');
+		pad -= 1;
 		sign = 1;
-		d *= -1;
-		size += 1;
-	}
-	else
-		sign = 0;
-	if (sign == 1 && option->zero == 1 && option->pre == -1)
-	{
-		sign = 0;
-		ft_putchar('-');
-		ret++;
 	}
 	if (option->minus == 1)
-	{
-		if (sign == 1)
-		{
-			ft_putchar('-');
-			ret++;
-		}
-		ret += padding(len, option->pre);
-		if (d == 0 && option->pre == 0)
-		{
-			if (option->width == 0)
-				return (0);
-			else
-				ft_putchar(' ');
-		}
-		else
-			ft_putnbr(d);
-		ret += len;
-	}
-	ret += fill_width_nbr(size, option);
+		cnt += padding(d, len, sign, option);
+	cnt += fill_width_nbr(cnt, pad, option);
 	if (option->minus == 0)
-	{
-		if (sign == 1)
-		{
-			ft_putchar('-');
-			ret++;
-		}
-		ret += padding(len, option->pre);
-		if (d == 0 && option->pre == 0)
-		{
-			if (option->width == 0)
-				return (0);
-			else
-				ft_putchar(' ');
-		}
-		else
-			ft_putnbr(d);
-		ret += len;
-	}
-	return (ret);
+		cnt += padding(d, len, sign, option);
+	return (cnt);
 }

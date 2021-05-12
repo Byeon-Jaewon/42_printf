@@ -6,7 +6,7 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 14:04:33 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/10 17:07:08 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/12 12:34:59 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ int		ft_putnbr(int n)
 	{
 		if (n < 0)
 		{
-			ret += ft_putchar('-');
+//			ret += ft_putchar('-');
 			n = n * (-1);
 		}
 		if (n > 9)
 		{
-			ft_putnbr(n / 10);
+			ret += ft_putnbr(n / 10);
 		}
 		ret += ft_putchar((n % 10) + '0');
 	}
