@@ -6,11 +6,11 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 14:01:02 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/10 16:15:44 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/13 12:32:57 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	LIBFT_H
+#ifndef LIBFT_H
 # define LIBFT_H
 # include <unistd.h>
 # include <stdlib.h>

@@ -6,11 +6,10 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 16:57:52 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/13 11:36:26 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/13 16:48:47 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "ft_printf.h"
 
 int		print_type(t_option *option, va_list ap)
@@ -113,6 +112,5 @@ int		ft_printf(const char *format, ...)
 	va_start(ap, format);
 	ret = parse((char *)format, ap);
 	va_end(ap);
-
 	return (ret);
 }

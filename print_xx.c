@@ -6,13 +6,13 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 11:43:57 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/13 11:37:55 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/13 12:18:12 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_putnbr_HEX(unsigned int u)
+int		ft_putnbr_lh(unsigned int u)
 {
 	char	*hex;
 	int		ret;
@@ -23,7 +23,7 @@ int		ft_putnbr_HEX(unsigned int u)
 		ret += ft_putchar(hex[u]);
 	else
 	{
-		ret += ft_putnbr_HEX(u / 16);
+		ret += ft_putnbr_lh(u / 16);
 		ret += ft_putchar(hex[u % 16]);
 	}
 	return (ret);
@@ -50,7 +50,7 @@ int		padding_xx(unsigned int u, int len, t_option *option)
 			cnt += ft_putchar(' ');
 	}
 	else
-		cnt += ft_putnbr_HEX(u);
+		cnt += ft_putnbr_lh(u);
 	return (cnt);
 }
 

@@ -6,7 +6,7 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 13:54:10 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/12 16:59:12 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/13 12:14:32 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int		hex_digit(unsigned int u)
 	while (u != 0)
 	{
 		u /= 16;
-		ret ++;
+		ret++;
 	}
 	return (ret);
 }
@@ -71,7 +71,7 @@ int		pointer_digit(unsigned long long p)
 	while (p != 0)
 	{
 		p /= 16;
-		ret ++;
+		ret++;
 	}
 	return (ret);
 }
