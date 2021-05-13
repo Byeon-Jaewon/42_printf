@@ -6,7 +6,7 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 11:43:57 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/12 14:37:21 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/13 11:37:55 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,10 @@ int		print_xx(unsigned int u, t_option *option)
 {
 	int		len;
 	int		cnt;
-	int		size;
 	int		pad;
 
 	cnt = 0;
 	len = hex_digit(u);
-	size = check_size_u(len, option);
 	pad = check_padding(1, len, option);
 	if (option->minus == 1)
 		cnt += padding_xx(u, len, option);

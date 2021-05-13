@@ -6,23 +6,11 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 13:39:03 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/12 14:26:49 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/13 11:36:14 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int		check_size_u(int len, t_option *option)
-{
-	int		size;
-
-	size = len;
-	if (size < option->pre)
-		size = option->pre;
-	if (size < option->width)
-		size = option->width;
-	return (size);
-}
 
 int		padding_u(unsigned int u, int len, t_option *option)
 {
@@ -62,16 +50,14 @@ int		ft_putunbr(unsigned int n)
 	return (ret);
 }
 
-int		print_uint(unsigned int u, t_option *option)
+int		print_u(unsigned int u, t_option *option)
 {
 	int		len;
 	int		cnt;
-	int		size;
 	int		pad;
 
 	cnt = 0;
 	len = unsigned_digit(u);
-	size = check_size_u(len, option);
 	pad = check_padding(1, len, option);
 	if (option->minus == 1)
 		cnt += padding_u(u, len, option);

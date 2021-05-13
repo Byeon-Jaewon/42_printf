@@ -6,7 +6,7 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 14:40:03 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/12 16:43:20 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/13 11:40:06 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,10 @@ int		print_p(unsigned long long p, t_option *option)
 {
 	int		len;
 	int		cnt;
-	int		size;
 	int		pad;
 
 	cnt = 0;
 	len = pointer_digit(p);
-	size = check_size_u(len, option);
 	if (option->pre == 0 && p == 0)
 		pad = 2;
 	else

@@ -6,30 +6,12 @@
 /*   By: jbyeon <jbyeon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 12:27:48 by jbyeon            #+#    #+#             */
-/*   Updated: 2021/05/12 16:52:45 by jbyeon           ###   ########.fr       */
+/*   Updated: 2021/05/13 11:35:30 by jbyeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
-
-int		check_size(int d, t_option *option)
-{
-	int		size;
-
-	size = decimal_digit(d);
-	if (d < 0)
-		size += 1;
-	if (size < option->pre)
-	{
-		size = option->pre;
-		if (d < 0)
-			size += 1;
-	}
-	if (size < option->width)
-		size = option->width;
-	return (size);
-}
 
 int		check_padding(int d, int len, t_option *option)
 {
@@ -104,14 +86,12 @@ int		print_decimal(int d, t_option *option)
 {
 	int		len;
 	int		cnt;
-	int		size;
 	int		pad;
 	int		sign;
 
 	cnt = 0;
 	sign = 0;
 	len = decimal_digit(d);
-	size = check_size(d, option);
 	pad = check_padding(d, len, option);
 	if (d < 0 && option->pre < 0 && (option->minus == 1 || option->zero == 1))
 	{
